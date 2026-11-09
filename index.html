@@ -91,18 +91,19 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
 ══════════════════════════════════════ */
 #screen-home {
   align-items: center;
-  padding: 24px 0 32px;
-  gap: 20px;
-  overflow-y: auto;
+  padding: 12px 0 16px;
+  gap: 10px;
+  overflow-y: hidden;
+  justify-content: center;
 }
 .home-hero {
   text-align: center;
   padding-top: 8px;
 }
-.home-hero .app-emoji { font-size: 4.5rem; display:block; margin-bottom:6px; filter: drop-shadow(0 4px 8px rgba(0,0,0,.18)); }
+.home-hero .app-emoji { font-size: 2.8rem; display:block; margin-bottom:2px; filter: drop-shadow(0 4px 8px rgba(0,0,0,.18)); }
 .home-hero h1 {
   font-family: 'Fredoka One', cursive;
-  font-size: clamp(2.4rem, 9vw, 3.6rem);
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
   line-height: 1;
   /* Phonics Pals — letras multicolor al estilo Monsters */
   background: linear-gradient(135deg, #f97316 0%, #ef4444 35%, #8b5cf6 65%, #3b82f6 100%);
@@ -114,38 +115,38 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
 }
 .home-hero p {
   color: #92400e;
-  font-size: .95rem;
+  font-size: .8rem;
   font-weight: 700;
-  margin-top: 6px;
+  margin-top: 2px;
   letter-spacing: .02em;
 }
 
 /* Group selector */
 .group-section {
   width: 100%;
-  max-width: 480px;
+  max-width: 540px;
   background: var(--card);
   border-radius: var(--r);
   border: 2.5px solid #fde68a;
   box-shadow: var(--shadow-sm), 0 3px 0 rgba(0,0,0,.07);
-  padding: 18px 20px;
+  padding: 10px 16px;
 }
 .group-section h2 {
   font-family: 'Fredoka One', cursive;
-  font-size: 1.15rem;
+  font-size: 1rem;
   color: var(--accent);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   text-align: center;
 }
 .group-pills {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
 }
 .group-pill {
-  width: 48px; height: 48px;
+  width: 40px; height: 40px;
   border-radius: 50%;
   border: 2.5px solid var(--border);
   background: #fff;
@@ -173,53 +174,52 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
 /* Menu — square card grid (Silabin style) */
 .menu-section {
   width: 100%;
-  max-width: 480px;
+  max-width: 540px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
 }
 @media (max-width: 400px) {
-  .menu-section { grid-template-columns: repeat(2, 1fr); }
+  .menu-section { grid-template-columns: repeat(4, 1fr); gap: 6px; }
 }
 .menu-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 8px;
+  justify-content: center;
+  gap: 5px;
   background: var(--card);
-  border-radius: 22px;
+  border-radius: 16px;
   border: 2px solid #d97706;
-  padding: 16px 8px 14px;
+  padding: 10px 4px;
   box-shadow: var(--shadow-sm), 0 3px 0 rgba(0,0,0,.06);
   transition: transform .12s, box-shadow .12s;
   text-align: center;
   color: var(--ink);
   cursor: pointer;
-  aspect-ratio: 1;
 }
 .menu-btn:hover { transform: translateY(-4px); box-shadow: var(--shadow-md), 0 6px 0 rgba(0,0,0,.08); }
 .menu-btn:active { transform: translateY(1px); box-shadow: 0 1px 4px rgba(0,0,0,.08); }
 .menu-btn .btn-icon {
-  font-size: 2rem;
-  width: 52px; height: 52px;
-  border-radius: 16px;
+  font-size: 1.6rem;
+  width: 42px; height: 42px;
+  border-radius: 12px;
   display: flex; align-items:center; justify-content:center;
   flex-shrink: 0;
 }
 .menu-btn .btn-info { width: 100%; }
 .menu-btn .btn-title {
   font-family: 'Fredoka One', cursive;
-  font-size: clamp(.8rem, 2.5vw, .95rem);
+  font-size: clamp(.62rem, 1.8vw, .82rem);
   color: var(--accent2);
-  line-height: 1.2;
+  line-height: 1.1;
 }
 .menu-btn .btn-desc {
-  font-size: .68rem;
+  font-size: .56rem;
   font-weight: 600;
   color: var(--ink-soft);
-  margin-top: 2px;
-  line-height: 1.3;
+  margin-top: 1px;
+  line-height: 1.2;
 }
 .menu-btn.color-green  { border-top: 4px solid #22c55e; }
 .menu-btn.color-green  .btn-icon { background: #dcfce7; }
@@ -232,6 +232,187 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
 
 .menu-btn.color-teal  { border-top: 4px solid #14b8a6; }
 .menu-btn.color-teal  .btn-icon { background: #ccfbf1; }
+.menu-btn.color-pink  { border-top: 4px solid #ec4899; }
+.menu-btn.color-pink  .btn-icon { background: #fce7f3; }
+.menu-btn.color-yellow{ border-top: 4px solid #eab308; }
+.menu-btn.color-yellow .btn-icon { background: #fef9c3; }
+
+/* ══════════════════════════════════════
+   GAME 6 — SOUND SORTING
+══════════════════════════════════════ */
+#screen-g6 { overflow-y: auto; }
+.g6-stage {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 14px; padding: 12px 4px 20px; width: 100%;
+}
+.g6-score-row {
+  display: flex; gap: 16px; justify-content: center;
+  font-family: 'Fredoka One', cursive; font-size: 1rem;
+  color: var(--accent2);
+}
+.g6-items-row {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  justify-content: center; min-height: 90px;
+}
+.g6-drag-item {
+  width: 72px; height: 72px;
+  border-radius: 18px;
+  background: #fff;
+  border: 2.5px solid #fde68a;
+  box-shadow: var(--shadow-sm);
+  font-size: 2.4rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: grab;
+  transition: transform .12s, box-shadow .12s, opacity .2s;
+  user-select: none;
+  position: relative;
+}
+.g6-drag-item:active { cursor: grabbing; transform: scale(1.1); box-shadow: var(--shadow-md); }
+.g6-drag-item.dragging { opacity: .5; }
+.g6-drag-item.correct-flash { background: #dcfce7; border-color: #22c55e; animation: g6flash .4s ease; }
+.g6-drag-item.wrong-flash   { background: #fee2e2; border-color: #ef4444; animation: g6shake .35s ease; }
+@keyframes g6flash { 0%{transform:scale(1)} 50%{transform:scale(1.15)} 100%{transform:scale(1)} }
+@keyframes g6shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+.g6-buckets {
+  display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
+}
+.g6-bucket {
+  width: 90px; min-height: 100px;
+  border-radius: 20px;
+  background: #fff9f0;
+  border: 3px dashed #fcd34d;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 10px 6px 8px;
+  transition: background .15s, border-color .15s;
+  position: relative;
+}
+.g6-bucket.drag-over { background: #fef3c7; border-color: #f59e0b; border-style: solid; }
+.g6-bucket .bucket-letter {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2rem; color: var(--accent2);
+  line-height: 1;
+}
+.g6-bucket .bucket-sound {
+  font-size: .68rem; font-weight: 700;
+  color: var(--ink-soft); letter-spacing: .03em;
+}
+.g6-bucket .bucket-items {
+  display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; min-height: 32px;
+}
+.g6-bucket-item {
+  font-size: 1.5rem;
+}
+.g6-next-btn {
+  display: none;
+  margin-top: 8px;
+  padding: 12px 32px;
+  border-radius: 24px;
+  background: var(--accent);
+  color: #fff;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  border: none;
+}
+.g6-next-btn.show { display: block; }
+.g6-feedback {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.2rem; color: var(--accent2);
+  min-height: 1.8em; text-align: center;
+}
+
+/* ══════════════════════════════════════
+   GAME 7 — PHONICS MEMORY
+══════════════════════════════════════ */
+#screen-g7 { overflow-y: auto; }
+.g7-stage {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 14px; padding: 12px 4px 20px; width: 100%;
+}
+.g7-score-row {
+  display: flex; gap: 20px; justify-content: center;
+  font-family: 'Fredoka One', cursive; font-size: 1rem;
+  color: var(--accent2);
+}
+.g7-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
+  gap: 10px;
+  width: 100%;
+  max-width: 440px;
+}
+.g7-card {
+  aspect-ratio: 1;
+  border-radius: 16px;
+  cursor: pointer;
+  perspective: 600px;
+  user-select: none;
+}
+.g7-card-inner {
+  width: 100%; height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform .35s;
+  border-radius: 16px;
+}
+.g7-card.flipped .g7-card-inner  { transform: rotateY(180deg); }
+.g7-card.matched .g7-card-inner  { transform: rotateY(180deg); }
+.g7-card.matched { pointer-events: none; }
+.g7-card-front, .g7-card-back {
+  position: absolute; inset: 0;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.g7-card-front {
+  background: var(--accent);
+  color: #fff;
+  font-size: 1.8rem;
+  font-family: 'Fredoka One', cursive;
+  box-shadow: var(--shadow-sm), 0 3px 0 rgba(0,0,0,.1);
+}
+.g7-card-back {
+  transform: rotateY(180deg);
+  background: #fff;
+  border: 2.5px solid #fde68a;
+  box-shadow: var(--shadow-sm);
+}
+.g7-card-back .g7-letter {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.9rem; color: var(--accent2);
+  line-height: 1;
+}
+.g7-card-back .g7-emoji {
+  font-size: 2rem; line-height: 1;
+}
+.g7-card.matched .g7-card-back {
+  background: #dcfce7; border-color: #22c55e;
+}
+.g7-matched-flash {
+  animation: g7matched .4s ease;
+}
+@keyframes g7matched { 0%{transform:rotateY(180deg) scale(1)} 50%{transform:rotateY(180deg) scale(1.12)} 100%{transform:rotateY(180deg) scale(1)} }
+.g7-next-btn {
+  display: none;
+  margin-top: 8px;
+  padding: 12px 32px;
+  border-radius: 24px;
+  background: var(--accent);
+  color: #fff;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  border: none;
+}
+.g7-next-btn.show { display: block; }
+.g7-feedback {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1rem; color: var(--accent2);
+  min-height: 1.8em; text-align: center;
+}
 
 .difficulty-toggle {
   display: flex;
@@ -1255,6 +1436,20 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
         <div class="btn-desc">Pick a letter · Crack the right eggs!</div>
       </div>
     </button>
+    <button class="menu-btn color-pink" onclick="startGame('g6')">
+      <div class="btn-icon">🪣</div>
+      <div class="btn-info">
+        <div class="btn-title">Sound Sorting</div>
+        <div class="btn-desc">Sort pictures by their starting sound</div>
+      </div>
+    </button>
+    <button class="menu-btn color-yellow" onclick="startGame('g7')">
+      <div class="btn-icon">🃏</div>
+      <div class="btn-info">
+        <div class="btn-title">Phonics Memory</div>
+        <div class="btn-desc">Match letters with pictures</div>
+      </div>
+    </button>
     <!-- G3 level selector (hidden until g3 chosen) -->
     <div class="g3-level-row" id="g3-level-row" style="display:none">
       <span class="g3-level-label">Letters:</span>
@@ -1396,7 +1591,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
   </div>
 
   <!-- CHOOSE LETTER PHASE -->
-  <div class="g5-choose-screen" id="g5-choose">
+  <div class="g5-choose-screen hidden" id="g5-choose">
     <div class="g5-choose-title">Choose a letter to practise:</div>
     <div style="font-size:.85rem;color:var(--ink-soft);font-family:'Nunito',sans-serif">Crack the eggs showing that letter! 🥚</div>
     <div class="g5-letter-grid" id="g5-letter-grid"></div>
@@ -1440,6 +1635,45 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
       <button class="btn-replay" id="btn-replay" onclick="replayGame()">Play again 🔄</button>
       <button class="btn-menu"   onclick="goHome()">Menu 🏠</button>
     </div>
+  </div>
+</div>
+
+<!-- ══════════════ GAME 6 — SOUND SORTING ══════════════ -->
+<div id="screen-g6" class="screen">
+  <div class="game-topbar">
+    <button class="back-btn" onclick="goHome()">← Back</button>
+    <div class="game-title">🪣 Sound Sorting</div>
+    <div class="topbar-score">✅ <span id="g6-correct">0</span></div>
+    <button class="fs-btn" onclick="toggleFS()" title="Pantalla completa" style="position:static;margin-left:auto">⛶</button>
+  </div>
+  <div class="g6-stage">
+    <div class="g6-score-row">
+      <span>Round <span id="g6-round">1</span> of <span id="g6-total">5</span></span>
+      <span>⭐ <span id="g6-score">0</span></span>
+    </div>
+    <div class="g6-feedback" id="g6-feedback"></div>
+    <div class="g6-items-row" id="g6-items-row"></div>
+    <div class="g6-buckets" id="g6-buckets"></div>
+    <button class="g6-next-btn" id="g6-next-btn" onclick="g6NextRound()">Next ➡️</button>
+  </div>
+</div>
+
+<!-- ══════════════ GAME 7 — PHONICS MEMORY ══════════════ -->
+<div id="screen-g7" class="screen">
+  <div class="game-topbar">
+    <button class="back-btn" onclick="goHome()">← Back</button>
+    <div class="game-title">🃏 Phonics Memory</div>
+    <div class="topbar-score">🔗 <span id="g7-pairs">0</span></div>
+    <button class="fs-btn" onclick="toggleFS()" title="Pantalla completa" style="position:static;margin-left:auto">⛶</button>
+  </div>
+  <div class="g7-stage">
+    <div class="g7-score-row">
+      <span>Pairs found: <span id="g7-found">0</span> / <span id="g7-total">0</span></span>
+      <span>Attempts: <span id="g7-attempts">0</span></span>
+    </div>
+    <div class="g7-feedback" id="g7-feedback"></div>
+    <div class="g7-grid" id="g7-grid"></div>
+    <button class="g7-next-btn" id="g7-next-btn" onclick="g7NewGame()">Play again 🔄</button>
   </div>
 </div>
 
@@ -1731,13 +1965,17 @@ function selectGroup(g) {
 
 // Auto-select group 1 on load
 selectGroup(1);
+// Force home screen visible on load (overrides any CSS ambiguity)
+showScreen('home');
 
 // ════════════════════════════════════════════════════════
 //  NAVIGATION
 // ════════════════════════════════════════════════════════
 function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById('screen-'+id).classList.add('active');
+  document.querySelectorAll('.screen').forEach(s=>{ s.classList.remove('active'); s.style.display='none'; });
+  const el = document.getElementById('screen-'+id);
+  el.classList.add('active');
+  el.style.display='flex';
 }
 function toggleFS() {
   if (!document.fullscreenElement) {
@@ -1751,11 +1989,13 @@ function toggleFS() {
 function goHome() {
   document.getElementById('result-overlay').classList.remove('show');
   document.getElementById('g3-level-row').style.display = 'none';
+  const g5c = document.getElementById('g5-choose');
+  if(g5c) g5c.classList.add('hidden');
   showScreen('home');
 }
 
 function startGame(game) {
-  if(!selectedGroup && game !== 'g3' && game !== 'g4' && game !== 'g5') { alert('Please select a group first!'); return; }
+  if(!selectedGroup && game !== 'g3' && game !== 'g4' && game !== 'g5' && game !== 'g6' && game !== 'g7') { alert('Please select a group first!'); return; }
   currentGame = game;
   if(game === 'g1') {
     g1Init();
@@ -1770,6 +2010,12 @@ function startGame(game) {
   } else if(game === 'g5') {
     g5Init();
     showScreen('g5');
+  } else if(game === 'g6') {
+    g6Init();
+    showScreen('g6');
+  } else if(game === 'g7') {
+    g7Init();
+    showScreen('g7');
   } else {
     g2Init(game);
     showScreen('g2');
@@ -2169,9 +2415,11 @@ function showResult() {
 function replayGame() {
   document.getElementById('result-overlay').classList.remove('show');
   if(currentGame === 'g5') {
-    // Go back to letter-choice screen for g5
-    g5Init();
-    showScreen('g5');
+    g5Init(); showScreen('g5');
+  } else if(currentGame === 'g6') {
+    g6Init(); showScreen('g6');
+  } else if(currentGame === 'g7') {
+    g7NewGame(); showScreen('g7');
   } else {
     startGame(currentGame);
   }
@@ -2837,6 +3085,313 @@ function g5Stop() {
     if(g5State.moles[i] && g5State.moles[i].timerId) clearTimeout(g5State.moles[i].timerId);
   });
   g5State.moles = [];
+}
+
+// ════════════════════════════════════════════════════════
+//  GAME 6 — SOUND SORTING
+//  Drag emoji pictures into the correct starting-sound bucket
+// ════════════════════════════════════════════════════════
+
+// Map: letter → array of {emoji, word} items
+const G6_ITEMS = {
+  's': [{e:'🌞',w:'sun'},{e:'🧦',w:'sock'},{e:'🐍',w:'snake'},{e:'⭐',w:'star'}],
+  'a': [{e:'🐜',w:'ant'},{e:'🍎',w:'apple'},{e:'🐊',w:'crocodile'},{e:'🪓',w:'axe'},{e:'✈️',w:'aeroplane'}],
+  't': [{e:'🐢',w:'turtle'},{e:'🌮',w:'taco'},{e:'🚂',w:'train'},{e:'🎺',w:'trumpet'}],
+  'i': [{e:'🍦',w:'ice cream'},{e:'🦎',w:'iguana'},{e:'🧊',w:'ice'}],
+  'p': [{e:'🐷',w:'pig'},{e:'🍕',w:'pizza'},{e:'🎁',w:'present'},{e:'🐧',w:'penguin'},{e:'🍐',w:'pear'},{e:'🥜',w:'peanut'}],
+  'n': [{e:'🌃',w:'night'},{e:'📰',w:'newspaper'},{e:'🪺',w:'nest'}],
+  'ck': [{e:'🐣',w:'chick'},{e:'🦆',w:'duck'},{e:'🐓',w:'cock'},{e:'🔑',w:'click'}],
+  'e': [{e:'🦅',w:'eagle'},{e:'🥚',w:'egg'},{e:'🐘',w:'elephant'}],
+  'h': [{e:'🐴',w:'horse'},{e:'🎩',w:'hat'},{e:'🏠',w:'house'},{e:'🦔',w:'hedgehog'},{e:'🌿',w:'herb'}],
+  'r': [{e:'🐇',w:'rabbit'},{e:'🌈',w:'rainbow'},{e:'🤖',w:'robot'},{e:'🚀',w:'rocket'},{e:'💍',w:'ring'}],
+  'm': [{e:'🐒',w:'monkey'},{e:'🍄',w:'mushroom'},{e:'🌙',w:'moon'},{e:'🧲',w:'magnet'},{e:'🗺️',w:'map'}],
+  'd': [{e:'🐬',w:'dolphin'},{e:'🥁',w:'drum'},{e:'🦌',w:'deer'},{e:'🐉',w:'dragon'},{e:'🎲',w:'dice'}],
+  'g': [{e:'🦒',w:'giraffe'},{e:'🍇',w:'grapes'},{e:'🌍',w:'globe'},{e:'🦷',w:'gold'},{e:'🐐',w:'goat'}],
+  'o': [{e:'🦦',w:'otter'},{e:'🦉',w:'owl'},{e:'🐙',w:'octopus'},{e:'🍊',w:'orange'}],
+  'u': [{e:'☂️',w:'umbrella'},{e:'🦄',w:'unicorn'},{e:'👆',w:'up'}],
+  'w': [{e:'🌊',w:'wave'},{e:'🐺',w:'wolf'},{e:'🪟',w:'window'},{e:'🌬️',w:'wind'}],
+  'c': [{e:'🎂',w:'cake'},{e:'🐱',w:'cat'},{e:'🌵',w:'cactus'},{e:'🥕',w:'carrot'}],
+  'l': [{e:'🦁',w:'lion'},{e:'🦞',w:'lobster'},{e:'🌸',w:'lily'},{e:'🦎',w:'lizard'},{e:'💡',w:'lamp'}],
+  'f': [{e:'🐟',w:'fish'},{e:'🦊',w:'fox'},{e:'🌸',w:'flower'},{e:'🐸',w:'frog'},{e:'🔥',w:'fire'}],
+  'b': [{e:'🦋',w:'butterfly'},{e:'🍌',w:'banana'},{e:'🐻',w:'bear'},{e:'🎈',w:'balloon'},{e:'🐝',w:'bee'}],
+};
+
+let g6State = {};
+
+function g6GetLetters() {
+  const grp = selectedGroup || JP_GROUPS.length;
+  return JP_GROUPS.slice(0, grp).flatMap(g => g.letters).filter(l => G6_ITEMS[l]);
+}
+
+function g6Init() {
+  g6State = { round: 0, totalRounds: 5, score: 0, correct: 0, bucketLetters: [], items: [], placed: 0, total: 0, totalItems: 0 };
+  document.getElementById('g6-score').textContent = 0;
+  document.getElementById('g6-correct').textContent = 0;
+  document.getElementById('g6-total').textContent = g6State.totalRounds;
+  document.getElementById('g6-next-btn').classList.remove('show');
+  document.getElementById('g6-feedback').textContent = '';
+  g6NextRound();
+}
+
+function g6NextRound() {
+  g6State.round++;
+  if(g6State.round > g6State.totalRounds) {
+    // Show final result via overlay
+    const pct = g6State.totalItems ? Math.round(g6State.score / g6State.totalItems * 100) : 0;
+    const emoji = pct>=80?'🏆':pct>=50?'⭐':'💪';
+    const title = pct>=80?'Brilliant!':pct>=50?'Good job!':'Keep going!';
+    document.getElementById('result-emoji').textContent = emoji;
+    document.getElementById('result-title').textContent = title;
+    document.getElementById('result-msg').textContent = 'You sorted ' + g6State.score + ' pictures correctly!';
+    document.getElementById('result-score').textContent = g6State.score + ' / ' + g6State.totalItems;
+    document.getElementById('result-overlay').classList.add('show');
+    speak(title + ' You sorted ' + g6State.score + ' pictures!', 0.9);
+    return;
+  }
+  document.getElementById('g6-round').textContent = g6State.round;
+  document.getElementById('g6-next-btn').classList.remove('show');
+  document.getElementById('g6-feedback').textContent = '';
+
+  // Pick 2–3 bucket letters
+  const avail = g6GetLetters();
+  const bucketCount = avail.length >= 3 ? 3 : Math.max(2, avail.length);
+  const buckets = pick(avail, bucketCount);
+  g6State.bucketLetters = buckets;
+
+  // For each bucket pick 1–2 items
+  const items = [];
+  buckets.forEach(letter => {
+    const pool = shuffle(G6_ITEMS[letter] || []);
+    const n = pool.length >= 2 ? 2 : 1;
+    pool.slice(0, n).forEach(item => items.push({ ...item, letter }));
+  });
+  g6State.items = shuffle(items);
+  g6State.placed = 0;
+  g6State.total = items.length;
+  g6State.totalItems = (g6State.totalItems || 0) + items.length;
+
+  g6Render();
+}
+
+function g6Render() {
+  // Items row
+  const row = document.getElementById('g6-items-row');
+  row.innerHTML = '';
+  g6State.items.forEach((item, idx) => {
+    const el = document.createElement('div');
+    el.className = 'g6-drag-item';
+    el.dataset.idx = idx;
+    el.textContent = item.e;
+    el.title = item.w;
+    // Drag events (desktop)
+    el.draggable = true;
+    el.addEventListener('dragstart', e => { e.dataTransfer.setData('text/plain', idx); el.classList.add('dragging'); });
+    el.addEventListener('dragend', () => el.classList.remove('dragging'));
+    // Touch events (mobile)
+    el.addEventListener('touchstart', g6TouchStart, { passive: false });
+    el.addEventListener('touchmove', g6TouchMove, { passive: false });
+    el.addEventListener('touchend', g6TouchEnd);
+    row.appendChild(el);
+  });
+
+  // Buckets
+  const bRow = document.getElementById('g6-buckets');
+  bRow.innerHTML = '';
+  g6State.bucketLetters.forEach(letter => {
+    const bucket = document.createElement('div');
+    bucket.className = 'g6-bucket';
+    bucket.dataset.letter = letter;
+    bucket.innerHTML = `
+      <div class="bucket-letter">${letter.toUpperCase()}</div>
+      <div class="bucket-sound">${PHONEME_TEXT[letter] || letter}</div>
+      <div class="bucket-items" id="bucket-${letter}"></div>`;
+    // Drop events
+    bucket.addEventListener('dragover', e => { e.preventDefault(); bucket.classList.add('drag-over'); });
+    bucket.addEventListener('dragleave', () => bucket.classList.remove('drag-over'));
+    bucket.addEventListener('drop', e => { e.preventDefault(); bucket.classList.remove('drag-over'); const idx = e.dataTransfer.getData('text/plain'); g6Drop(parseInt(idx), letter); });
+    bRow.appendChild(bucket);
+  });
+}
+
+// Touch drag state
+let g6Touch = { el: null, clone: null, idx: null };
+function g6TouchStart(e) {
+  const el = e.currentTarget;
+  g6Touch.idx = parseInt(el.dataset.idx);
+  g6Touch.el = el;
+  const clone = el.cloneNode(true);
+  clone.style.cssText = `position:fixed;opacity:.8;pointer-events:none;z-index:999;width:72px;height:72px;border-radius:18px;background:#fff;border:2.5px solid #fde68a;font-size:2.4rem;display:flex;align-items:center;justify-content:center;`;
+  document.body.appendChild(clone);
+  g6Touch.clone = clone;
+  const t = e.touches[0];
+  clone.style.left = (t.clientX - 36) + 'px';
+  clone.style.top  = (t.clientY - 36) + 'px';
+  e.preventDefault();
+}
+function g6TouchMove(e) {
+  if(!g6Touch.clone) return;
+  const t = e.touches[0];
+  g6Touch.clone.style.left = (t.clientX - 36) + 'px';
+  g6Touch.clone.style.top  = (t.clientY - 36) + 'px';
+  e.preventDefault();
+}
+function g6TouchEnd(e) {
+  if(!g6Touch.clone) return;
+  g6Touch.clone.remove();
+  const t = e.changedTouches[0];
+  const target = document.elementFromPoint(t.clientX, t.clientY);
+  const bucket = target && target.closest('.g6-bucket');
+  if(bucket) g6Drop(g6Touch.idx, bucket.dataset.letter);
+  g6Touch = { el: null, clone: null, idx: null };
+}
+
+function g6Drop(idx, dropLetter) {
+  const item = g6State.items[idx];
+  if(!item || item.placed) return;
+  item.placed = true;
+  g6State.placed++;
+
+  const dragEl = document.querySelector(`.g6-drag-item[data-idx="${idx}"]`);
+  const correct = item.letter === dropLetter;
+
+  if(correct) {
+    g6State.score++;
+    document.getElementById('g6-score').textContent = g6State.score;
+    if(dragEl) { dragEl.classList.add('correct-flash'); setTimeout(() => dragEl.remove(), 450); }
+    // Add mini emoji to bucket
+    const bItems = document.getElementById('bucket-' + dropLetter);
+    if(bItems) { const sp = document.createElement('span'); sp.className='g6-bucket-item'; sp.textContent=item.e; bItems.appendChild(sp); }
+    speakPhoneme(item.letter);
+    document.getElementById('g6-feedback').textContent = '⭐ ' + item.w.charAt(0).toUpperCase() + item.w.slice(1) + '!';
+  } else {
+    if(dragEl) { dragEl.classList.add('wrong-flash'); setTimeout(() => { dragEl.classList.remove('wrong-flash'); item.placed = false; g6State.placed--; }, 400); }
+    document.getElementById('g6-feedback').textContent = '❌ Try again!';
+    return;
+  }
+
+  document.getElementById('g6-correct').textContent = g6State.score;
+  if(g6State.placed >= g6State.total) {
+    setTimeout(() => { document.getElementById('g6-next-btn').classList.add('show'); document.getElementById('g6-feedback').textContent = '🎉 All sorted!'; }, 300);
+  }
+}
+
+// ════════════════════════════════════════════════════════
+//  GAME 7 — PHONICS MEMORY
+//  Flip pairs: letter card ↔ emoji card
+// ════════════════════════════════════════════════════════
+let g7State = {};
+
+function g7GetPairs() {
+  const grp = selectedGroup || JP_GROUPS.length;
+  const letters = JP_GROUPS.slice(0, grp).flatMap(g => g.letters).filter(l => G6_ITEMS[l]);
+  // Pick 4–6 pairs depending on group size
+  const count = Math.min(6, Math.max(4, letters.length));
+  return pick(letters, count).map(letter => {
+    const item = rand(G6_ITEMS[letter]);
+    return { letter, emoji: item.e, word: item.w };
+  });
+}
+
+function g7Init() {
+  g7NewGame();
+}
+
+function g7NewGame() {
+  const pairs = g7GetPairs();
+  // Build cards array: for each pair, one letter card + one emoji card
+  const cards = [];
+  pairs.forEach((pair, i) => {
+    cards.push({ id: i * 2,     pairId: i, type: 'letter', value: pair.letter, display: pair.letter.toUpperCase(), word: pair.word });
+    cards.push({ id: i * 2 + 1, pairId: i, type: 'emoji',  value: pair.letter, display: pair.emoji,                word: pair.word });
+  });
+  g7State = {
+    cards: shuffle(cards),
+    flipped: [],   // indices currently face-up (max 2)
+    matched: new Set(),
+    attempts: 0,
+    locked: false,
+  };
+  document.getElementById('g7-found').textContent = 0;
+  document.getElementById('g7-total').textContent = pairs.length;
+  document.getElementById('g7-pairs').textContent = 0;
+  document.getElementById('g7-attempts').textContent = 0;
+  document.getElementById('g7-feedback').textContent = '';
+  document.getElementById('g7-next-btn').classList.remove('show');
+  g7Render();
+}
+
+function g7Render() {
+  const grid = document.getElementById('g7-grid');
+  grid.innerHTML = '';
+  g7State.cards.forEach((card, idx) => {
+    const el = document.createElement('div');
+    el.className = 'g7-card' + (g7State.matched.has(card.pairId) ? ' matched flipped' : '');
+    el.innerHTML = `
+      <div class="g7-card-inner">
+        <div class="g7-card-front">❓</div>
+        <div class="g7-card-back">${card.type === 'letter'
+          ? `<div class="g7-letter">${card.display}</div>`
+          : `<div class="g7-emoji">${card.display}</div>`}
+        </div>
+      </div>`;
+    if(!g7State.matched.has(card.pairId)) {
+      el.addEventListener('click', () => g7Flip(idx));
+    }
+    grid.appendChild(el);
+  });
+}
+
+function g7Flip(idx) {
+  if(g7State.locked) return;
+  if(g7State.flipped.includes(idx)) return;
+  if(g7State.matched.has(g7State.cards[idx].pairId)) return;
+
+  g7State.flipped.push(idx);
+  // Show card
+  const cards = document.querySelectorAll('.g7-card');
+  cards[idx].classList.add('flipped');
+
+  if(g7State.flipped.length === 2) {
+    g7State.locked = true;
+    g7State.attempts++;
+    document.getElementById('g7-attempts').textContent = g7State.attempts;
+
+    const [a, b] = g7State.flipped;
+    const ca = g7State.cards[a], cb = g7State.cards[b];
+
+    if(ca.pairId === cb.pairId) {
+      // Match!
+      g7State.matched.add(ca.pairId);
+      g7State.flipped = [];
+      g7State.locked = false;
+      cards[a].classList.add('matched', 'g7-matched-flash');
+      cards[b].classList.add('matched', 'g7-matched-flash');
+      cards[a].style.pointerEvents = 'none';
+      cards[b].style.pointerEvents = 'none';
+      const found = g7State.matched.size;
+      document.getElementById('g7-found').textContent = found;
+      document.getElementById('g7-pairs').textContent = found;
+      document.getElementById('g7-feedback').textContent = '⭐ ' + ca.word.charAt(0).toUpperCase() + ca.word.slice(1) + '!';
+      speakPhoneme(ca.value);
+      const total = parseInt(document.getElementById('g7-total').textContent);
+      if(found >= total) {
+        setTimeout(() => {
+          document.getElementById('g7-feedback').textContent = '🎉 All matched!';
+          document.getElementById('g7-next-btn').classList.add('show');
+        }, 500);
+      }
+    } else {
+      // No match — flip back
+      document.getElementById('g7-feedback').textContent = '❌ Not a match!';
+      setTimeout(() => {
+        cards[a].classList.remove('flipped');
+        cards[b].classList.remove('flipped');
+        document.getElementById('g7-feedback').textContent = '';
+        g7State.flipped = [];
+        g7State.locked = false;
+      }, 900);
+    }
+  }
 }
 
 </script>
