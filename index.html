@@ -1164,6 +1164,26 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
 .btn-replay { background: var(--accent); color:#fff; box-shadow:0 3px 10px rgba(15,118,110,.3); }
 .btn-menu   { background: var(--card); border: 2px solid var(--border); color:var(--ink-soft); }
 
+/* ── FULLSCREEN BUTTON ── */
+.fs-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 1.1rem;
+  color: var(--accent2);
+  box-shadow: var(--shadow-sm);
+  z-index: 30;
+  cursor: pointer;
+  transition: transform .12s, box-shadow .12s;
+}
+.fs-btn:hover { transform: scale(1.08); box-shadow: var(--shadow-md); }
+#screen-home { position: relative; }
+.game-topbar { position: relative; }
+
 </style>
 </head>
 <body>
@@ -1171,6 +1191,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
 
 <!-- ══════════════ HOME ══════════════ -->
 <div id="screen-home" class="screen active">
+  <button class="fs-btn" onclick="toggleFS()" title="Pantalla completa">⛶</button>
   <div class="home-hero">
     
     <h1>Phonics Pals</h1>
@@ -1250,6 +1271,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
   <div class="game-topbar">
     <button class="back-btn" onclick="goHome()">← Back</button>
     <div class="game-title">Find the Sound 🔊</div>
+    <button class="fs-btn" style="position:static;margin-left:auto" onclick="toggleFS()" title="Pantalla completa">⛶</button>
   </div>
   <div class="score-bar">
     <div class="score-pill"><span class="sc-label">✓</span><span class="sc-num" id="g1-correct">0</span></div>
@@ -1271,6 +1293,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
   <div class="game-topbar">
     <button class="back-btn" onclick="goHome()">← Back</button>
     <div class="game-title" id="g2-title">Read a Word 📖</div>
+    <button class="fs-btn" style="position:static;margin-left:auto" onclick="toggleFS()" title="Pantalla completa">⛶</button>
   </div>
   <div class="score-bar">
     <div class="score-pill"><span class="sc-label">✓</span><span class="sc-num" id="g2-correct">0</span></div>
@@ -1304,6 +1327,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
   <div class="game-topbar">
     <button class="back-btn" onclick="goHome()">← Back</button>
     <div class="game-title">Match the Word 🖼️</div>
+    <button class="fs-btn" style="position:static;margin-left:auto" onclick="toggleFS()" title="Pantalla completa">⛶</button>
   </div>
   <div class="score-bar">
     <div class="score-pill"><span class="sc-label">✓</span><span class="sc-num" id="g3-correct">0</span></div>
@@ -1337,6 +1361,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
   <div class="game-topbar">
     <button class="back-btn" onclick="goHome()">← Back</button>
     <div class="game-title">Spell the Word ⌨️</div>
+    <button class="fs-btn" style="position:static;margin-left:auto" onclick="toggleFS()" title="Pantalla completa">⛶</button>
   </div>
   <div class="score-bar">
     <div class="score-pill"><span class="sc-label">✓</span><span class="sc-num" id="g4-correct">0</span></div>
@@ -1367,6 +1392,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
   <div class="game-topbar">
     <button class="back-btn" id="g5-back-btn" onclick="g5Back()">← Back</button>
     <div class="game-title">Crack the Egg 🥚</div>
+    <button class="fs-btn" style="position:static;margin-left:auto" onclick="toggleFS()" title="Pantalla completa">⛶</button>
   </div>
 
   <!-- CHOOSE LETTER PHASE -->
@@ -1712,6 +1738,15 @@ selectGroup(1);
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById('screen-'+id).classList.add('active');
+}
+function toggleFS() {
+  if (!document.fullscreenElement) {
+    (document.documentElement.requestFullscreen && document.documentElement.requestFullscreen()) ||
+    (document.documentElement.webkitRequestFullscreen && document.documentElement.webkitRequestFullscreen());
+  } else {
+    (document.exitFullscreen && document.exitFullscreen()) ||
+    (document.webkitExitFullscreen && document.webkitExitFullscreen());
+  }
 }
 function goHome() {
   document.getElementById('result-overlay').classList.remove('show');
