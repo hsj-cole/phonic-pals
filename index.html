@@ -1,5 +1,4 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-
 <title>Phonics Pals</title>
 <style>
 /* Fuentes incrustadas (latin): funcionan sin conexión */
@@ -3108,11 +3107,18 @@ function g5Stop() {
 // ════════════════════════════════════════════════════════
 
 // Map: letter → array of {emoji, word} items
+
+// Dibujos propios (SVG) para palabras sin emoji adecuado. En los datos se escriben como 'svg:nombre'.
+const SVG_PICS = { igloo: '<svg viewBox="3 15 58 42" width="1.05em" height="0.76em" style="width:1.05em;height:0.76em;display:block" role="img" aria-label="igloo"><ellipse cx="32" cy="50" rx="29" ry="5.5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/><path d="M8 48A24 24 0 0 1 56 48Z" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2.5" stroke-linejoin="round"/><path d="M9.4 42H54.6M11.2 36H52.8M16.1 30H47.9M25.1 25H38.9" stroke="#7dd3fc" stroke-width="2" fill="none"/><path d="M20 36V42M44 36V42M27 30V36M37 30V36M32 25V30M14 42V48M50 42V48" stroke="#7dd3fc" stroke-width="2" fill="none"/><path d="M26 49V44A6 6 0 0 1 38 44V49Z" fill="#1e3a5f"/></svg>' };
+function picHTML(e) {
+  return (typeof e === 'string' && e.indexOf('svg:') === 0 && SVG_PICS[e.slice(4)]) ? SVG_PICS[e.slice(4)] : e;
+}
+
 const G6_ITEMS = {
   's': [{e:'🌞',w:'sun'},{e:'🧦',w:'sock'},{e:'🐍',w:'snake'},{e:'⭐',w:'star'},{e:'🤒',w:'sick'}],
   'a': [{e:'🐜',w:'ant'},{e:'🍎',w:'apple'},{e:'🪓',w:'axe'}],
   't': [{e:'🐢',w:'turtle'},{e:'🌮',w:'taco'},{e:'🚂',w:'train'},{e:'🎺',w:'trumpet'}],
-  'i': [{e:'🦎',w:'iguana'}],
+  'i': [{e:'🦎',w:'iguana'},{e:'svg:igloo',w:'igloo'}],
   'p': [{e:'🐷',w:'pig'},{e:'🍕',w:'pizza'},{e:'🎁',w:'present'},{e:'🐧',w:'penguin'},{e:'🍐',w:'pear'},{e:'🥜',w:'peanut'}],
   'n': [{e:'🌃',w:'night'},{e:'📰',w:'newspaper'},{e:'🪺',w:'nest'},{e:'👃',w:'nose'},{e:'🦦',w:'nutria'}],
   'ck': [{e:'🐱',w:'cat'},{e:'🎂',w:'cake'},{e:'🌵',w:'cactus'},{e:'🥕',w:'carrot'},{e:'🪁',w:'kite'},{e:'🔑',w:'key'},{e:'🐊',w:'crocodile'}],
@@ -3195,7 +3201,7 @@ function g6Render() {
     const el = document.createElement('div');
     el.className = 'g6-drag-item';
     el.dataset.idx = idx;
-    el.textContent = item.e;
+    el.innerHTML = picHTML(item.e);
     el.title = item.w;
     // Drag events (desktop)
     el.draggable = true;
@@ -3274,7 +3280,7 @@ function g6Drop(idx, dropLetter) {
     if(dragEl) { dragEl.classList.add('correct-flash'); setTimeout(() => dragEl.remove(), 450); }
     // Add mini emoji to bucket
     const bItems = document.getElementById('bucket-' + dropLetter);
-    if(bItems) { const sp = document.createElement('span'); sp.className='g6-bucket-item'; sp.textContent=item.e; bItems.appendChild(sp); }
+    if(bItems) { const sp = document.createElement('span'); sp.className='g6-bucket-item'; sp.innerHTML=picHTML(item.e); bItems.appendChild(sp); }
     speakPhoneme(item.letter);
     document.getElementById('g6-feedback').textContent = '⭐ ' + item.w.toUpperCase() + '!';
   } else {
@@ -3316,7 +3322,7 @@ function g7NewGame() {
   const cards = [];
   pairs.forEach((pair, i) => {
     cards.push({ id: i * 2,     pairId: i, type: 'letter', value: pair.letter, display: pair.letter.toUpperCase(), word: pair.word });
-    cards.push({ id: i * 2 + 1, pairId: i, type: 'emoji',  value: pair.letter, display: pair.emoji,                word: pair.word });
+    cards.push({ id: i * 2 + 1, pairId: i, type: 'emoji',  value: pair.letter, display: picHTML(pair.emoji),       word: pair.word });
   });
   g7State = {
     cards: shuffle(cards),
